@@ -1,0 +1,30 @@
+2026-04-21 02:00:03 | INFO     | __main__ — ═══ JobPulse Daily Pipeline — 2026-04-21 ═══
+2026-04-21 02:00:04 | INFO     | __main__ — ✔ Database connection OK
+2026-04-21 02:00:04 | INFO     | __main__ — ✔ ML model found at ml/models/classifier_v3.pt
+2026-04-21 02:00:04 | INFO     | final_scraper — ▶ Starting scraper: jobboard_a
+2026-04-21 02:00:04 | INFO     | final_scraper — ▶ Starting scraper: jobboard_b
+2026-04-21 02:00:04 | INFO     | final_scraper — ▶ Starting scraper: jobboard_c
+2026-04-21 02:00:07 | DEBUG    | scrapers.parsers.generic_api — [jobboard_a] Page 1 — 50 items (running total: 50)
+2026-04-21 02:00:09 | DEBUG    | scrapers.parsers.html_parser — [jobboard_b] Page 1 — 24 cards at https://www.jobboard-b.example.com/search
+2026-04-21 02:00:11 | DEBUG    | scrapers.parsers.generic_api — [jobboard_c] Page 1 — 50 items (running total: 50)
+2026-04-21 02:00:13 | DEBUG    | scrapers.parsers.generic_api — [jobboard_a] Page 2 — 50 items (running total: 100)
+2026-04-21 02:00:15 | DEBUG    | scrapers.parsers.html_parser — [jobboard_b] Page 2 — 24 cards at https://www.jobboard-b.example.com/search?page=2
+2026-04-21 02:00:17 | DEBUG    | scrapers.parsers.generic_api — [jobboard_c] Page 2 — 50 items (running total: 100)
+2026-04-21 02:00:19 | DEBUG    | scrapers.parsers.generic_api — [jobboard_a] Page 3 — 38 items (running total: 138)
+2026-04-21 02:00:19 | INFO     | base_scraper — [jobboard_a] Finished — 138 listings collected.
+2026-04-21 02:00:21 | DEBUG    | scrapers.parsers.html_parser — [jobboard_b] Page 3 — 11 cards at https://www.jobboard-b.example.com/search?page=3
+2026-04-21 02:00:21 | INFO     | base_scraper — [jobboard_b] Finished — 59 listings collected.
+2026-04-21 02:00:23 | DEBUG    | scrapers.parsers.generic_api — [jobboard_c] Page 3 — 50 items (running total: 150)
+2026-04-21 02:00:25 | DEBUG    | scrapers.parsers.generic_api — [jobboard_c] Page 4 — 22 items (running total: 172)
+2026-04-21 02:00:25 | INFO     | base_scraper — [jobboard_c] Finished — 172 listings collected.
+2026-04-21 02:00:25 | INFO     | final_scraper — Total raw listings collected: 369
+2026-04-21 02:00:25 | INFO     | final_scraper — After deduplication: 341 unique listings
+2026-04-21 02:00:26 | INFO     | ml.models.classifier — Loading classifier from ml/models/classifier_v3.pt on cpu …
+2026-04-21 02:00:31 | INFO     | ml.models.classifier — Classifier ready (12 labels).
+2026-04-21 02:00:45 | INFO     | ml.models.classifier — Classified 341 listings.
+2026-04-21 02:00:45 | INFO     | final_scraper — Validated listings ready for DB: 338
+2026-04-21 02:00:47 | INFO     | final_scraper — DB upsert complete — new: 271, updated: 67
+2026-04-21 02:00:47 | INFO     | __main__ — Stats: {'date': '2026-04-21', 'total_today': 338, 'by_source': {'jobboard_c': 169, 'jobboard_a': 131, 'jobboard_b': 38}, 'top_categories': {'Engineering': 104, 'Data Science': 62, 'Finance': 48, 'Marketing': 37, 'Operations': 29}}
+2026-04-21 02:00:48 | INFO     | __main__ — Deactivated 12 stale listings (older than 30 days).
+2026-04-21 02:00:48 | INFO     | utils — Slack notification sent.
+2026-04-21 02:00:48 | INFO     | __main__ — Pipeline finished in 45.2s.
